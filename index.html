@@ -49,14 +49,10 @@
 			background-color: blue;
 			color: white; 
 			/* width and height can be anything, as long as they're equal */
-
-
-
 		}
 
 		.playerTitle {
-			width: 2.5em;
-		
+			width: 2.5em;		
 		}
 
 		.gk {
@@ -64,7 +60,7 @@
 		}
 
 		.sub {
-			background-color: black;
+			background-color: red;
 		}
 
 		.playerNum {
@@ -91,8 +87,81 @@
 
 	<script type="text/javascript">
 
+	$( document ).ready(function() {
+	
+		var players = [
+			{ name:"Stuart Nelson", num:1, gk:true },
+			{ name:"Luke O'Neill", num:2 },
+			{ name:"Bradley Garmston", num:3 },
+			{ name:"Alex Lacey", num:4 },
+			{ name:"Max Ehmer", num:5 },
+			{ name:"Gabriel Zakuani", num:6 },
+			{ name:"Scott Wagstaff", num:7 },
+			{ name:"Jake Hessenthaler", num:8 },
+			{ name:"Tom Eaves", num:9 },
+			{ name:"Connor Wilkinson", num:10 },
+			{ name:"Lee Martin", num:11 },
+			{ name:"Connor Ogilvie", num:12 },
+			{ name:"Tomas Holy", num:13, gk:true },
+			{ name:"Josh Parker", num:14 },
+			{ name:"Aaron Morris", num:15 },
+			{ name:"Billy Bingham", num:16 },
+			{ name:"Noel Mbo", num:17 },
+			{ name:"Bradley Stevenson", num:18 },
+			{ name:"Ben Nugent", num:19 },
+			{ name:"Darren Oldaker", num:20 },
+			{ name:"Eliott List", num:21 },
+			{ name:"Ben Chapman", num:22 },
+			{ name:"Aaron Simpson", num:23 },
+			{ name:"Greg Cundle", num:24 },
+			{ name:"Finn O'Mara", num:25 },
+			{ name:"Steve Arnold", num:26, gk:true },
+			{ name:"Liam Nash", num:27 },
+			{ name:"Sean Clare", num:28 },
+			{ name:"Jesse Starkey", num:29 },
+			{ name:"Tom Hadler", num:30, gk:true },
+			{ name:"Mark Byrne", num:33 },
+			{ name:"Josh Wright", num:44 }
+		];
+		//byrne = 30, wright=31
+		var games = [
+			{ opp:"Doncaster Rovers", score:"0-0", venue:"A", players:[12,1,11,5,15,4,13,30,10,6,8], subs:[29,24,7,31,23,26,9]},
+			{ opp:"Reading", score:"2-0", venue:"A", players:[12,1,11,4,13,7,19,31,6,23,8], subs:[29,24,30,21,20,26,9]},
+			{ opp:"Bradford City", score:"0-1", venue:"H", players:[12,3,1,11,5,4,13,30,10,31,9], subs:[29,7,19,6,23,8,26]},
+			{ opp:"MK Dons", score:"1-0", venue:"A", players:[12,3,1,11,5,4,13,30,10,31,9], subs:[25,18,22,7,19,23,26]}	,
+			{ opp:"Southend", score:"3-3", venue:"H", players:[12,3,1,11,5,15,4,31,10,8,26], subs:[25,18,13,7,19,6,23]},
+			{ opp:"Southend", score:"2-1", venue:"H", players:[25,18,1,11,4,13,7,19,6,23,9], subs:[12,3,22,31,21,20,8]},
+			{ opp:"Shrewsbury", score:"1-2", venue:"H", players:[12,3,18,1,11,15,31,10,6,8,26], subs:[25,4,13,27,7,19,23]},
+			{ opp:"Oxford", score:"3-0", venue:"A", players:[12,3,18,11,5,31,7,10,6,8,9], subs:[25,1,4,13,27,19,26]},
+			{ opp:"AFC Wimbledon", score:"1-1", venue:"A", players:[12,3,1,11,5,31,27,10,6,8,9], subs:[25,18,4,13,7,19,23]}
+		];
+		
+		//build squad list
+		$.each(players, function(i,v) {
+			console.log(v);
+			$("#playerList").append("<tr onclick='showPlayer("+i+",false)' onmouseover='showPlayer("+i+",true)' class='player p"+i+"'><td>"+v.num+"</td><td>"+v.name+"</td></tr>")
+		});
+		
+		//build player list
+		$.each(games, function(i,v) {
+			console.log(v);
+			var string = ("<tr><td>"+v.opp+"</td><td>"+v.venue+"</td><td>"+v.score+"</td>");
+			$.each(v.players, function(i,v) {
+				var gk="";
+				if(players[v].gk){
+					gk=" gk";
+				}
+				string+=("<td class='player"+gk+" p"+v+"' onclick=\"showPlayer("+v+",false)\" onmouseover=\"showPlayer("+v+",true)\">"+players[v].num+"</td>");
+			});
+			$.each(v.subs, function(i,v) {
+				string+=("<td class='player sub p"+v+"' onclick=\"showPlayer("+v+",false)\" onmouseover=\"showPlayer("+v+",true)\">"+players[v].num+"</td>");
+			});			
+			$("#matchList").append(string+"</tr>");
+		});
+	});
+	
 	var clicked = false;
-
+	
 	function showPlayer(number, hover) {
 
 		if (!(hover && clicked)) {
@@ -121,8 +190,8 @@
 </head>
 <body>
 <div id="matches">
-<table>
-<tr><th>Opposition</th><th>&nbsp;</th><th>Competition</th><th>Score</th>
+<table id="matchList">
+<tr><th>Opposition</th><th>&nbsp;</th><th>Score</th>
 	<th class="playerTitle">GK</th><th class="playerTitle">P2</th><th class="playerTitle">P3</th><th class="playerTitle">P4</th><th class="playerTitle">P5</th><th class="playerTitle">P6</th><th class="playerTitle">P7</th><th class="playerTitle">P8</th><th class="playerTitle">P9</th><th class="playerTitle">P10</th><th class="playerTitle">P11</th>
 	<th class="playerTitle">S1</th><th class="playerTitle">S2</th><th class="playerTitle">S3</th><th class="playerTitle">S4</th><th class="playerTitle">S5</th><th class="playerTitle">S6</th><th class="playerTitle">S7</th>
 </table>
@@ -134,11 +203,9 @@
 		Then, either click another player or Reset.<br>
 	</div>
 <span onclick="reset()">Reset</span>
-<table>
-
+<table id="playerList">
+<tr><th>No</th><th>Name</th></tr>
 </table>
-
-
 </div>
 </body>
 </html>
