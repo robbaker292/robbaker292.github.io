@@ -27,21 +27,16 @@
 		}		
 
 		#players {
-			float: right;
-			width: 25%;
 			font-size: 1.2em;
+			overflow-y: scroll;
+			float:right;
+			width:25%;
+			height:calc(100vh - 40px);
 		}
 
 		.player {
-			/*
-			margin-left: 0.7em;
-			margin-right: 0.7em;
-
-*/
 			vertical-align: middle;
 			font-weight: bold;
-			
-
 			margin: auto;
 			border-radius: 50%;
 			width: 2.5em;
@@ -128,12 +123,16 @@
 			{ opp:"Doncaster Rovers", score:"0-0", venue:"A", players:[12,1,11,5,15,4,13,30,10,6,8], subs:[29,24,7,31,23,26,9]},
 			{ opp:"Reading", score:"2-0", venue:"A", players:[12,1,11,4,13,7,19,31,6,23,8], subs:[29,24,30,21,20,26,9]},
 			{ opp:"Bradford City", score:"0-1", venue:"H", players:[12,3,1,11,5,4,13,30,10,31,9], subs:[29,7,19,6,23,8,26]},
-			{ opp:"MK Dons", score:"1-0", venue:"A", players:[12,3,1,11,5,4,13,30,10,31,9], subs:[25,18,22,7,19,23,26]}	,
-			{ opp:"Southend", score:"3-3", venue:"H", players:[12,3,1,11,5,15,4,31,10,8,26], subs:[25,18,13,7,19,6,23]},
-			{ opp:"Southend", score:"2-1", venue:"H", players:[25,18,1,11,4,13,7,19,6,23,9], subs:[12,3,22,31,21,20,8]},
-			{ opp:"Shrewsbury", score:"1-2", venue:"H", players:[12,3,18,1,11,15,31,10,6,8,26], subs:[25,4,13,27,7,19,23]},
-			{ opp:"Oxford", score:"3-0", venue:"A", players:[12,3,18,11,5,31,7,10,6,8,9], subs:[25,1,4,13,27,19,26]},
-			{ opp:"AFC Wimbledon", score:"1-1", venue:"A", players:[12,3,1,11,5,31,27,10,6,8,9], subs:[25,18,4,13,7,19,23]}
+			{ opp:"MK Dons", score:"1-0", venue:"A", players:[12,3,1,11,5,4,13,30,10,31,8], subs:[25,18,22,7,19,23,26]}	,
+			{ opp:"Southend", score:"3-3", venue:"H", players:[12,3,1,11,5,15,4,30,10,8,26], subs:[25,18,13,7,19,6,23]},
+			{ opp:"Southend", score:"2-1", venue:"H", players:[25,18,1,11,4,13,7,19,6,23,9], subs:[12,3,22,30,21,20,8]},
+			{ opp:"Shrewsbury", score:"1-2", venue:"H", players:[12,3,18,1,11,15,30,10,6,8,26], subs:[25,4,13,27,7,19,23]},
+			{ opp:"Oxford", score:"3-0", venue:"A", players:[12,3,18,11,5,30,7,10,6,8,9], subs:[25,1,4,13,27,19,26]},
+			{ opp:"AFC Wimbledon", score:"1-1", venue:"A", players:[12,3,1,11,5,30,27,10,6,8,9], subs:[25,18,4,13,7,19,23]},
+			{ opp:"Charlton", score:"1-0", venue:"H", players:[12,3,18,1,5,4,30,27,6,8,9], subs:[25,11,13,7,28,23,26]},
+			{ opp:"Rochdale", score:"3-0", venue:"A", players:[12,3,18,1,5,15,4,30,27,8,9], subs:[25,11,13,7,19,28,26]},
+			{ opp:"Scunthorpe", score:"0-0", venue:"H", players:[12,3,18,1,11,5,4,30,27,7,20], subs:[25,13,22,19,28,23,26]},
+			{ opp:"Blackburn", score:"1-0", venue:"A", players:[12,18,11,5,4,13,30,27,7,10,9], subs:[25,24,22,19,28,20,23]}
 		];
 		
 		//build squad list
