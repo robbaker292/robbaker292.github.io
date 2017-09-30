@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<head>
+	<title>Gills 2017-18</title>
+	<meta charset="UTF-8">
+	<style type="text/css">
+
+		body {
+
+			font-family: sans-serif;
+			
+		}
+
+		table, .info {
+			text-align: center;
+			font-size: 0.7em;
+		}
+
+		td {
+			padding-top: 0.3em;
+			padding-bottom: 0.3em;
+			text-align: center;
+			vertical-align: middle;
+		}	
+
+		#matches {
+			float: left;
+		}		
+
+		#players {
+			float: right;
+			width: 25%;
+			font-size: 1.2em;
+		}
+
+		.player {
+			/*
+			margin-left: 0.7em;
+			margin-right: 0.7em;
+
+*/
+			vertical-align: middle;
+			font-weight: bold;
+			
+
+			margin: auto;
+			border-radius: 50%;
+			width: 2.5em;
+			height: 2.2em;
+			background-color: blue;
+			color: white; 
+			/* width and height can be anything, as long as they're equal */
+
+
+
+		}
+
+		.playerTitle {
+			width: 2.5em;
+		
+		}
+
+		.gk {
+			background-color: green;
+		}
+
+		.sub {
+			background-color: black;
+		}
+
+		.playerNum {
+			font-weight: bold;
+		}
+
+		.unselected {
+			opacity: 0.5;
+		}
+
+		.highlighted {
+			background-color: #AAAAAA !important;
+		}
+
+		#players > table {
+			
+		}
+
+		#players tr:nth-child(even) {background-color: #DDDDDD}
+		#players tr:nth-child(odd) {background-color: #EEEEEE}
+
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+	<script type="text/javascript">
+
+	var clicked = false;
+
+	function showPlayer(number, hover) {
+
+		if (!(hover && clicked)) {
+
+			if (!hover) {
+				clicked = true;
+			}
+
+			//console.log($("#players tr"));
+			$(".player").addClass("unselected");
+			$(".p" + number).removeClass("unselected");
+			$("#players tr").removeClass("highlighted");
+			$("#players .p"+number).addClass("highlighted");
+		}
+	}
+
+	function reset() {
+		clicked=false;
+		$(".player").removeClass("unselected");
+		$("#players tr").removeClass("highlighted");
+	}
+
+
+	</script>
+
+</head>
+<body>
+<div id="matches">
+<table>
+<tr><th>Opposition</th><th>&nbsp;</th><th>Competition</th><th>Score</th>
+	<th class="playerTitle">GK</th><th class="playerTitle">P2</th><th class="playerTitle">P3</th><th class="playerTitle">P4</th><th class="playerTitle">P5</th><th class="playerTitle">P6</th><th class="playerTitle">P7</th><th class="playerTitle">P8</th><th class="playerTitle">P9</th><th class="playerTitle">P10</th><th class="playerTitle">P11</th>
+	<th class="playerTitle">S1</th><th class="playerTitle">S2</th><th class="playerTitle">S3</th><th class="playerTitle">S4</th><th class="playerTitle">S5</th><th class="playerTitle">S6</th><th class="playerTitle">S7</th>
+</table>
+</div>
+<div id="players">
+	<div class="info">
+		To see players easier, hover over their details below, or their number in the match lineups.<br>
+		Clicking on a player will stop players highlighting when hovering.<br>
+		Then, either click another player or Reset.<br>
+	</div>
+<span onclick="reset()">Reset</span>
+<table>
+
+</table>
+
+
+</div>
+</body>
+</html>
